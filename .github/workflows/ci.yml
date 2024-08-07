@@ -1,31 +1,46 @@
-name: Node.js CI
+# name: Node.js CI
+
+# on:
+#   push:
+#     branches: [ dev ]
+#   pull_request:
+#     branches: [ dev ]
+
+# jobs:
+#   build:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v3
+
+#     - name: Set up Node.js
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: '16'
+
+#     - name: Install dependencies
+#       run: npm install --verbose
+
+#     - name: Run tests
+#       run: npm test
+
+#     - name: Build application
+#       run: npm run build
+#       if: exists('src/index.js')
+name: Test Workflow
 
 on:
   push:
     branches: [ dev ]
-  pull_request:
-    branches: [ dev ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: Install dependencies
-      run: npm install --verbose
-
-    - name: Run tests
-      run: npm test
-
-    - name: Build application
-      run: npm run build
-      if: exists('src/index.js')
+      - name: Print Message
+        run: echo "Workflow triggered successfully!"
